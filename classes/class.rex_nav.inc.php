@@ -180,7 +180,7 @@ class rex_nav {
 				}
 
 				// showHasSubClass
-				if(sizeof($cat->getChildren()) != 0 && ($depth < $this->levelCount - 1)) {
+				if(sizeof($cat->getChildren(true)) != 0 && ($depth < $this->levelCount - 1)) {
 					$cssClasses .= ' ' . $this->hasSubClass;
 				}
 
