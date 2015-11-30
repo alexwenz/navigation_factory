@@ -151,10 +151,6 @@ class rex_nav {
 			$cats = OOCategory::getRootCategories($this->ignoreOfflines);
 		} else {
 			$cats = OOCategory::getChildrenById($categoryId, $this->ignoreOfflines);
-
-			if ($this->showHasSubClass) {
-				$listClasses .= ' ' . $this->hasSubClass;
-			}
 		}
 
 		if (count($cats) > 0) {
@@ -182,6 +178,12 @@ class rex_nav {
 				if ($this->listItemClass != '') {
 					$cssClasses .= ' ' . $this->listItemClass;
 				}
+
+				// showHasSubClass
+				if(sizeof($cat->getChildren()) != 0) {
+					$cssClasses .= ' ' . $this->hasSubClass;
+				}
+
 
 				// li class
 				if (is_array($this->listItemClassFromCategoryId) && isset($this->listItemClassFromCategoryId[$cat->getId()])) {
